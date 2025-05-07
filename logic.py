@@ -24,7 +24,7 @@ class VoteManager:
     def _load_voter_ids(self):
         try:
             with open(self.file_path, mode='r', newline='') as file:
-                return {row[0] for row in csv.reader(file)}
+                return {row[0] for row in csv.reader(file) if row}
         except FileNotFoundError:
             return set()
 
